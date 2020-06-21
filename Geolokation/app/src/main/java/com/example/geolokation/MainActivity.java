@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
     TextView tv_lat, tv_lon, tv_altitude, tv_accuracy, tv_speed, tv_sensor, tv_updates, tv_address;
     Switch sw_locationsupdates, sw_gps;
 
-    LocationRequest  locationRequest;
+    //LocationRequest deklarieren :)
+    LocationRequest locationRequest;
 
     FusedLocationProviderClient  fusedLocationProviderClient;
 
@@ -62,9 +63,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(sw_gps.isChecked()){
+                    //Anbieter GPS 
+                    //LocationRequest.PRIORITY_HIGH_ACCURACY
                     locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
                     tv_sensor.setText("Using GPS sensors");
                 }else{
+                    //Anbieter Netzwerk 
+                    //LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY
                     locationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
                     tv_sensor.setText("Using Cell Towers or Wifi");
                 }
@@ -75,7 +80,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void updateGPS(){
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(MainActivity.this);
+        // FusedLocationProviderClient initialisieren
+        // = LocationServices.getFusedLocationProviderClient(MainActivity.this);
+        fusedLocationProviderClient =  LocationServices.getFusedLocationProviderClient(MainActivity.this);
 
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
                 fusedLocationProviderClient.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>(){
