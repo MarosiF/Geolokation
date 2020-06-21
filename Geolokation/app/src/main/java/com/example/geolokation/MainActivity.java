@@ -1,12 +1,10 @@
-package com.example.geoloktaion;
+package com.example.geolokation;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
@@ -16,6 +14,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.geoloktaion.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
@@ -27,11 +26,12 @@ public class MainActivity extends AppCompatActivity {
     TextView tv_lat, tv_lon, tv_altitude, tv_accuracy, tv_speed, tv_sensor, tv_updates, tv_address;
     Switch sw_locationsupdates, sw_gps;
 
+    LocationRequest  locationRequest;
+
     FusedLocationProviderClient  fusedLocationProviderClient;
 
     boolean updateOn;
 
-    LocationRequest  locationRequest;
     final int DEFAULT_UPDATE_INTERVAL = 30;
     final int FAST_UPDATE_INTERVAL = 5;
 

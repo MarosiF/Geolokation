@@ -1,4 +1,4 @@
-package com.example.geoloktaion;
+package com.example.geolokation;
 
 import android.content.Context;
 
