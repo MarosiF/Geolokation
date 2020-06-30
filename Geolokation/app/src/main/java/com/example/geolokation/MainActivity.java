@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     //LocationRequest is a config file, contains quality of service parameters that will influence the way the  FusedLocationProvider works.
     //declare LocationRequest  :)
-    LocationRequest locationRequest;
+    //LocationRequest locationRequest;
 
     LocationCallback locationCallBack;
 
@@ -95,13 +95,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(sw_gps.isChecked()){
                     //most accurate - Provider: GPS
+                    // set provider GPS
                     //LocationRequest.PRIORITY_HIGH_ACCURACY
-                    locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+                    locationRequest.setPriority(LocationRequest.);
                     tv_sensor.setText("Using GPS sensors");
                 }else{
                     //Provider: Network Wifi, cell phone tower
+                    //set provider Network
                     //LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY
-                    locationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+                    locationRequest.setPriority(LocationRequest.);
                     tv_sensor.setText("Using Cell Towers or Wifi");
                 }
             }
@@ -150,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
     private void updateGPS(){
         // FusedLocationProviderClient initialisieren
         // = LocationServices.getFusedLocationProviderClient(MainActivity.this);
-        fusedLocationProviderClient =  LocationServices.getFusedLocationProviderClient(MainActivity.this);
+        fusedLocationProviderClient =
 
         //get permission from the user to track GPS
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
