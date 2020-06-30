@@ -35,9 +35,18 @@ public class MainActivity extends AppCompatActivity {
     // FusedLocationProviderClient is the standard API used for reading GPS and cell phone tower location data.
     FusedLocationProviderClient  fusedLocationProviderClient;
 
+
+    //-----------------------------------------------------------------------------------
+
     //LocationRequest is a config file, contains quality of service parameters that will influence the way the  FusedLocationProvider works.
     //declare LocationRequest  :)
+    //insert your code here
+
     //LocationRequest locationRequest;
+
+
+    //-----------------------------------------------------------------------------------
+
 
     LocationCallback locationCallBack;
 
@@ -94,16 +103,29 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(sw_gps.isChecked()){
+
+                    //----------------------------------------------
                     //most accurate - Provider: GPS
                     // set provider GPS
                     //LocationRequest.PRIORITY_HIGH_ACCURACY
+                    //insert your code here after setPriority(LocationRequest.
                     locationRequest.setPriority(LocationRequest.);
+                    //-------------------------------------------------------
+
+
                     tv_sensor.setText("Using GPS sensors");
                 }else{
+
+
+                    //---------------------------------------------------------
                     //Provider: Network Wifi, cell phone tower
                     //set provider Network
                     //LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY
+                    //insert your code here after setPriority(LocationRequest.
                     locationRequest.setPriority(LocationRequest.);
+                    //---------------------------------------------------------
+
+
                     tv_sensor.setText("Using Cell Towers or Wifi");
                 }
             }
@@ -133,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
         tv_updates.setText("Location is being tracked!");
         fusedLocationProviderClient.requestLocationUpdates(locationRequest, locationCallBack, null);
         updateGPS();
-    }
+}
 
     private void stopLocationUpdates() {
         tv_updates.setText("Location is NOT being tracked!");
@@ -143,16 +165,22 @@ public class MainActivity extends AppCompatActivity {
         tv_address.setText("Not tracking location");
         tv_accuracy.setText("Not tracking location");
         tv_altitude.setText("Not tracking location");
-        tv_sensor.setText("Not tracking location");
 
         fusedLocationProviderClient.removeLocationUpdates(locationCallBack);
     }
 
 
     private void updateGPS(){
+
+        //---------------------------------------------------------------------------------------------
+
         // FusedLocationProviderClient initialisieren
         // = LocationServices.getFusedLocationProviderClient(MainActivity.this);
+        // insert your code after =
         fusedLocationProviderClient =
+
+        //---------------------------------------------------------------------------------------------
+
 
         //get permission from the user to track GPS
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
